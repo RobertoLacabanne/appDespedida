@@ -1,0 +1,15 @@
+# Configuración de Netlify para "Lo que nos queda"
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Dirección pública: la necesita WhatsApp para mostrar la imagen de vista previa
+  VITE_SITE_URL = "https://lo-que-nos-queda.netlify.app"
+
+# Archivos con hash en el nombre: se pueden guardar en caché para siempre
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

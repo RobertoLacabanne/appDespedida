@@ -97,7 +97,8 @@ Queda todo en la carpeta `dist/`.
 
 ### 3. Subila a un hosting estático (cualquiera de estos)
 
-- **Netlify Drop** (lo más simple): entrá a <https://app.netlify.com/drop> y arrastrá la carpeta `dist`. Te da una dirección; si no coincide con la que pusiste en `.env`, actualizala, compilá de nuevo y volvé a subir.
+- **Netlify** (ya configurado): el archivo `netlify.toml` define el build, la carpeta `dist` y la dirección pública `https://lo-que-nos-queda.netlify.app`. Si conectás el repositorio en Netlify, cada cambio se publica solo.
+- **Netlify Drop** (sin repositorio): entrá a <https://app.netlify.com/drop> y arrastrá la carpeta `dist`. Te da una dirección; si no coincide con la que pusiste en `.env`, actualizala, compilá de nuevo y volvé a subir.
 - **Vercel** o **Cloudflare Pages**: conectá el repositorio, comando de build `npm run build`, carpeta de salida `dist`, y la variable de entorno `VITE_SITE_URL`.
 - **GitHub Pages**: funciona tal cual, incluso dentro de una subcarpeta (las rutas son relativas).
 
