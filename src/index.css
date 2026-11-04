@@ -1,0 +1,400 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/newsreader/opsz.css';
+@import '@fontsource-variable/newsreader/opsz-italic.css';
+@import '@fontsource-variable/hanken-grotesk/index.css';
+
+/* ==================================================================
+   TOKENS — "Herbario al atardecer"
+   Papel marfil, tinta azul profundo, aguadas de salvia, oro y rosa.
+   Ningún componente usa colores o tamaños sueltos: todo sale de acá.
+   ================================================================== */
+@theme {
+  /* Papel */
+  --color-paper: #f7efe2;
+  --color-paper-light: #fcf8f1;
+  --color-paper-deep: #efe3cf;
+  --color-sand: #dcc9a8;
+  --color-rule: #e2d3ba;
+
+  /* Tinta (azul profundo) */
+  --color-ink: #1d2a44;
+  --color-ink-soft: #46526b;
+  --color-ink-faint: #8a92a6;
+  --color-dusk: #2b3d63;
+
+  /* Salvia */
+  --color-sage: #8da287;
+  --color-sage-deep: #5b7558;
+  --color-sage-soft: #cbd6c3;
+  --color-sage-mist: #e4eadd;
+
+  /* Oro suave */
+  --color-gold: #c69a3e;
+  --color-gold-deep: #8f6a1f;
+  --color-gold-soft: #e9cb85;
+  --color-gold-light: #f5e6bf;
+
+  /* Rosa empolvado */
+  --color-rose: #d9a0a6;
+  --color-rose-deep: #a8606d;
+  --color-rose-soft: #f1d5d3;
+  --color-rose-mist: #f8e8e4;
+
+  /* Tierra y fruto */
+  --color-umber: #6b4c2e;
+  --color-umber-soft: #9a7448;
+  --color-olive: #7f8a4e;
+  --color-olive-deep: #545d2c;
+
+  /* Atardecer */
+  --color-peach: #f4c49a;
+  --color-apricot: #eda77f;
+  --color-coral: #e08e77;
+  --color-amber: #f2c66e;
+
+  /* Tipografía */
+  --font-serif: 'Newsreader Variable', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --text-micro: 0.6875rem;
+  --text-micro--line-height: 1.2;
+  --text-ui: 0.875rem;
+  --text-ui--line-height: 1.35;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.6;
+  --text-lead: clamp(1.15rem, 0.9rem + 1.3vw, 1.45rem);
+  --text-lead--line-height: 1.45;
+  --text-phrase: clamp(1.6rem, 1.05rem + 3.2vw, 2.7rem);
+  --text-phrase--line-height: 1.22;
+  --text-display: clamp(2.7rem, 1.4rem + 7vw, 5.4rem);
+  --text-display--line-height: 1.02;
+
+  /* Radios */
+  --radius-card: 0.75rem;
+  --radius-chip: 999px;
+
+  /* Sombras: siempre en capas, tibias, nunca negras */
+  --shadow-paper: 0 1px 2px rgb(92 64 30 / 0.06), 0 10px 30px -12px rgb(92 64 30 / 0.22);
+  --shadow-lift: 0 2px 4px rgb(92 64 30 / 0.06), 0 18px 40px -14px rgb(92 64 30 / 0.28);
+  --shadow-button: 0 1px 1px rgb(29 42 68 / 0.12), 0 8px 18px -8px rgb(29 42 68 / 0.45);
+
+  /* Curvas y duraciones */
+  --ease-soft: cubic-bezier(0.22, 0.8, 0.26, 1);
+  --ease-breath: cubic-bezier(0.45, 0, 0.55, 1);
+
+  /* Animaciones nombradas */
+  --animate-sway: sway 6s var(--ease-breath) infinite alternate;
+  --animate-bud: bud 2.6s var(--ease-breath) infinite;
+  --animate-drift: drift 60s linear infinite;
+  --animate-breathe: breathe 9s var(--ease-breath) infinite alternate;
+}
+
+:root {
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 900ms;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  /* Espacio del distintivo del hosting, si existe (lo mide useHostBadge) */
+  --badge-space: 0px;
+  color-scheme: light;
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  html {
+    background: var(--color-paper);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-deep);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: var(--color-gold-light);
+    color: var(--color-ink);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Utilidades de identidad
+   ------------------------------------------------------------------ */
+@utility font-display {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 72;
+  letter-spacing: -0.012em;
+}
+
+@utility font-letter {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 16;
+}
+
+/* Rótulo de herbario: versalitas espaciadas */
+@utility label-caps {
+  font-family: var(--font-sans);
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+@utility h-screen-safe {
+  height: 100vh;
+  height: 100dvh;
+}
+
+@utility min-h-screen-safe {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+@utility pt-safe {
+  padding-top: max(0.75rem, var(--safe-top));
+}
+
+@utility pb-safe {
+  padding-bottom: max(1rem, var(--safe-bottom), var(--badge-space));
+}
+
+@utility px-safe {
+  padding-left: max(1rem, var(--safe-left));
+  padding-right: max(1rem, var(--safe-right));
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility text-pretty {
+  text-wrap: pretty;
+}
+
+/* Grano de papel: una sola capa fija, sin blend modes (barato en celulares) */
+.paper-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.36  0 0 0 0 0.25  0 0 0 0 0.12  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+}
+
+/* ------------------------------------------------------------------
+   Keyframes
+   ------------------------------------------------------------------ */
+@keyframes sway {
+  from {
+    transform: rotate(-1.6deg);
+  }
+  to {
+    transform: rotate(1.6deg);
+  }
+}
+
+@keyframes bud {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(-12%);
+  }
+  to {
+    transform: translateX(12%);
+  }
+}
+
+@keyframes breathe {
+  from {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  to {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes rise {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx, 0px), var(--dy, -60px)) scale(0.4);
+    opacity: 0;
+  }
+}
+
+@keyframes halo {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+@keyframes grow-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes flap {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.28);
+  }
+}
+
+@keyframes feather-x {
+  from {
+    transform: translateX(-18vw);
+  }
+  to {
+    transform: translateX(118vw);
+  }
+}
+
+@keyframes feather-y {
+  0% {
+    transform: translateY(0) rotate(-14deg);
+  }
+  50% {
+    transform: translateY(5vh) rotate(10deg);
+  }
+  100% {
+    transform: translateY(1vh) rotate(-8deg);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes sun-sink {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(6%);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Movimiento reducido: se apagan todas las animaciones continuas.
+   Los cambios de estado quedan como fundidos cortos.
+   ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 200ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .motion-loop {
+    animation: none !important;
+  }
+}
+
+/* Navegadores sin overflow: clip conservan overflow: hidden */
+@supports not (overflow: clip) {
+  .overflow-clip {
+    overflow: hidden;
+  }
+}
