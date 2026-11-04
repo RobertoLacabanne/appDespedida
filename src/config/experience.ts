@@ -221,6 +221,7 @@ export const experience: ExperienceConfig = {
         'Hay algo que quiero que sepan, aunque me cueste decirlo: voy a extrañar la persona que era cuando estaba con ustedes. Durante mucho tiempo fui alguien que se castigaba por todo, que nunca terminaba de estar conforme consigo mismo. Y con ustedes, sin que se dieran cuenta, me pasaba algo distinto: me gustaba quién era. Me encantaba ser esa persona. Eso se los debo a ustedes, y no sé si alguna vez se los dije.',
         'También quiero que sepan que creo de verdad en el trabajo que hacíamos. Nunca fue un trámite: era algo que valía la pena hacer bien. Y admiro profundamente lo profesionales que son, el compromiso y la seriedad con que encaran cada cosa, incluso cuando nadie está mirando.',
         'Me llevo los recuerdos, las enseñanzas, las conversaciones y, sobre todo, las amistades que nacieron en el camino.',
+        'Los quiero con todo mi corazón. Y lo digo en serio: por ustedes recibiría un tiro.',
         'Gracias por acompañarme durante todo este tiempo.',
         'Gracias por haber sido parte de esta etapa de mi vida.',
         'Y gracias por hacer que valiera tanto la pena.',
