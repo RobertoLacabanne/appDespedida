@@ -45,7 +45,7 @@ export function ChapterLettingGo({ released, setReleased, onBack, onNext }: Prop
   }, [])
 
   return (
-    <section className="relative flex h-screen-safe flex-col overflow-hidden">
+    <section className="relative flex h-screen-safe flex-col overflow-clip">
       <Sky variant="dawn" />
 
       <DandelionField
@@ -58,7 +58,7 @@ export function ChapterLettingGo({ released, setReleased, onBack, onNext }: Prop
       />
 
       {/* Loto: el crecimiento personal */}
-      <div className="pointer-events-none absolute bottom-[100px] right-[3%] z-0 w-[min(32vw,180px)] sm:right-[14%]" aria-hidden="true">
+      <div className="pointer-events-none absolute bottom-[calc(100px+max(0px,var(--badge-space)-16px))] right-[3%] z-0 w-[min(32vw,180px)] sm:right-[14%]" aria-hidden="true">
         <Lotus open={lotusOpen ? 1 : 0} className="w-full" />
       </div>
 

@@ -97,6 +97,8 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
+  /* Espacio del distintivo del hosting, si existe (lo mide useHostBadge) */
+  --badge-space: 0px;
   color-scheme: light;
 }
 
@@ -191,7 +193,7 @@
 }
 
 @utility pb-safe {
-  padding-bottom: max(1rem, var(--safe-bottom));
+  padding-bottom: max(1rem, var(--safe-bottom), var(--badge-space));
 }
 
 @utility px-safe {
@@ -387,5 +389,12 @@
 
   .motion-loop {
     animation: none !important;
+  }
+}
+
+/* Navegadores sin overflow: clip conservan overflow: hidden */
+@supports not (overflow: clip) {
+  .overflow-clip {
+    overflow: hidden;
   }
 }

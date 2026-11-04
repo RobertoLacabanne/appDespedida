@@ -6,12 +6,14 @@ import { ChapterGratitude } from './chapters/ChapterGratitude'
 import { ChapterLettingGo } from './chapters/ChapterLettingGo'
 import { ChapterRemains } from './chapters/ChapterRemains'
 import { CHAPTER_COUNT, useChapter } from './lib/useChapter'
+import { useHostBadge } from './lib/useHostBadge'
 
 const ease = [0.22, 0.8, 0.26, 1] as const
 
 export default function App() {
   const { chapter, goTo } = useChapter()
   const navigated = useRef(false)
+  useHostBadge()
 
   // Estado que sobrevive al ir y volver entre capítulos
   const [introSeen, setIntroSeen] = useState(chapter > 0)
@@ -51,7 +53,7 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <LazyMotion features={domAnimation} strict>
-        <main className="relative h-screen-safe overflow-hidden bg-paper">
+        <main className="relative h-screen-safe overflow-clip bg-paper">
           <AnimatePresence mode="wait" initial={false}>
             <m.div
               key={chapter}

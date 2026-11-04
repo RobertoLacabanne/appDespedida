@@ -75,7 +75,7 @@ export function ChapterGratitude({ order, setOrder, onBack, onNext }: Props) {
   const activeMessage = activeIndex >= 0 ? (isFinal ? finalMessage : all[activeIndex]) : null
 
   return (
-    <section className="relative flex h-screen-safe flex-col overflow-hidden">
+    <section className="relative flex h-screen-safe flex-col overflow-clip">
       <Sky variant="garden" />
       <ChapterHeader index={2} title={title} />
 

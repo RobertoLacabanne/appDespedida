@@ -80,7 +80,7 @@ export function ChapterTime({ introSeen, onIntroDone, onNext }: Props) {
   }, [done])
 
   return (
-    <section className="relative flex h-screen-safe flex-col overflow-hidden" aria-labelledby="titulo-obra">
+    <section className="relative flex h-screen-safe flex-col overflow-clip" aria-labelledby="titulo-obra">
       <Sky variant="dusk" sun hills horizon={done ? 74 : 70} />
 
       <div className="absolute right-0 top-0 z-30 px-safe pt-safe">

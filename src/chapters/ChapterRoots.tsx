@@ -49,7 +49,7 @@ export function ChapterRoots({ revealed, setRevealed, onBack, onNext }: Props) {
   }
 
   return (
-    <section className="relative flex h-screen-safe flex-col overflow-hidden">
+    <section className="relative flex h-screen-safe flex-col overflow-clip">
       <Sky variant="paper" />
       <ChapterHeader index={1} title={title} />
 

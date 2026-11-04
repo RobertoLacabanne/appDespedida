@@ -94,6 +94,7 @@ export function DandelionField({ blow, onRelease, onInteract, reduced, anchor, g
     let lastInteraction = performance.now()
     let lastHint = performance.now()
     let raf = 0
+    let groundPx = ground
     let running = true
 
     const resize = () => {
@@ -105,8 +106,10 @@ export function DandelionField({ blow, onRelease, onInteract, reduced, anchor, g
       canvas.height = Math.round(h * dpr)
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       R = Math.max(46, Math.min(92, Math.min(w, h) * 0.17))
+      const badge = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--badge-space')) || 0
+      groundPx = ground + Math.max(0, badge - 16)
       hx = w * anchor.x
-      hy = Math.min(h * anchor.y, h - ground - R * 2.2)
+      hy = Math.min(h * anchor.y, h - groundPx - R * 2.2)
       if (reduced) draw(performance.now())
     }
 
@@ -338,7 +341,7 @@ export function DandelionField({ blow, onRelease, onInteract, reduced, anchor, g
       ctx!.strokeStyle = SAGE_DEEP
       ctx!.lineWidth = 3
       ctx!.beginPath()
-      const base = h - ground
+      const base = h - groundPx
       ctx!.moveTo(hx - 4, base)
       ctx!.quadraticCurveTo(hx + 10, hy + (base - hy) * 0.5, X, hy + R * 0.1)
       ctx!.stroke()
@@ -452,6 +455,7 @@ export function DandelionField({ blow, onRelease, onInteract, reduced, anchor, g
 
     const ro = new ResizeObserver(resize)
     ro.observe(canvas)
+    window.addEventListener('badgespace', resize)
     resize()
     if (reduced) draw(performance.now())
     else raf = requestAnimationFrame(step)
@@ -460,13 +464,14 @@ export function DandelionField({ blow, onRelease, onInteract, reduced, anchor, g
       running = false
       cancelAnimationFrame(raf)
       ro.disconnect()
+      window.removeEventListener('badgespace', resize)
       canvas.removeEventListener('pointerdown', onDown)
       canvas.removeEventListener('pointermove', onMove)
       canvas.removeEventListener('pointerup', onUp)
       canvas.removeEventListener('pointercancel', onUp)
       api.current = null
     }
-  }, [reduced, anchor.x, anchor.y])
+  }, [reduced, anchor.x, anchor.y, ground])
 
   useEffect(() => {
     if (blow > 0) api.current?.blow()
