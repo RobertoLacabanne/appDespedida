@@ -171,7 +171,7 @@ export const experience: ExperienceConfig = {
       ],
       // Microcopy (editable).
       hint: 'Tocá los brotes del árbol',
-      completed: 'Y todo eso fue creciendo con los años.',
+      completed: 'Y todo eso fue creciendo con el tiempo.',
       memoriesTitle: 'Algunos recuerdos',
     },
 
@@ -181,15 +181,15 @@ export const experience: ExperienceConfig = {
       intro: 'Cada flor guarda algo que quería decirles.',
       hint: 'Tocá una flor',
       messages: [
-        'Gracias por las risas que hicieron más livianos los días difíciles.',
-        'Gracias por cada charla que empezó hablando de trabajo y terminó hablando de la vida.',
-        'Gracias por estar cuando las cosas no salían como esperábamos.',
-        'Gracias por enseñarme, escucharme y acompañarme.',
-        'Gracias por hacer que tantos días comunes terminaran siendo recuerdos especiales.',
-        'Gracias por demostrarme que el compañerismo también puede convertirse en amistad.',
+        'Gracias por las risas que llegaban justo a tiempo, cuando el día venía pesado y nadie se animaba a decirlo.',
+        'Gracias por esas charlas que empezaban en un legajo y terminaban, sin pedir permiso, en la vida.',
+        'Gracias por estar cuando las cosas no salían. No arreglaban nada, y sin embargo lo arreglaban todo.',
+        'Gracias por enseñarme sin dar lecciones, y por escucharme incluso cuando yo no sabía bien qué estaba diciendo.',
+        'Gracias por los días comunes. Ahora que los miro de lejos, me doy cuenta de que no tenían nada de comunes.',
+        'Gracias por convertir el compañerismo en otra cosa, en algo que no figura en ningún organigrama y que se llama amistad.',
       ],
       finalMessage:
-        'De todo lo que viví en estos años, ustedes son una de las cosas más lindas que me llevo.',
+        'De todo lo que me llevo de este tiempo, ustedes son lo más liviano de cargar y lo más difícil de soltar.',
       // Rótulo de la última tarjeta (microcopy, editable).
       finalLabel: 'Lo que me llevo',
       flowerNames: {
@@ -216,15 +216,15 @@ export const experience: ExperienceConfig = {
       title: 'Lo que nos queda',
       letterHeading: 'Una carta',
       letter: [
-        'Después de tantos años compartiendo días, historias, risas y momentos de todo tipo, hoy me toca cerrar esta etapa.',
-        'Y aunque despedirse nunca es del todo sencillo, me voy con la tranquilidad de saber que lo verdaderamente importante no queda atrás.',
-        'Porque más allá del trabajo, de las obligaciones y de la rutina, lo que queda son las personas.',
+        'Después de tanto tiempo compartido, de días largos y de otros que se pasaban volando, de historias, de risas y de momentos de todo tipo, hoy me toca cerrar esta etapa.',
+        'No voy a hacer de cuenta que es fácil, porque no lo es. Pero me voy con la tranquilidad de saber que lo verdaderamente importante no se queda atrás. Más allá del trabajo, de las obligaciones y de la rutina, lo que queda son las personas.',
+        'Hay algo que quiero que sepan, aunque me cueste decirlo: voy a extrañar la persona que era cuando estaba con ustedes. Durante mucho tiempo fui alguien que se castigaba por todo, que nunca terminaba de estar conforme consigo mismo. Y con ustedes, sin que se dieran cuenta, me pasaba algo distinto: me gustaba quién era. Me encantaba ser esa persona. Eso se los debo a ustedes, y no sé si alguna vez se los dije.',
+        'También quiero que sepan que creo de verdad en el trabajo que hacíamos. Nunca fue un trámite: era algo que valía la pena hacer bien. Y admiro profundamente lo profesionales que son, el compromiso y la seriedad con que encaran cada cosa, incluso cuando nadie está mirando.',
         'Me llevo los recuerdos, las enseñanzas, las conversaciones y, sobre todo, las amistades que nacieron en el camino.',
-        'Gracias por acompañarme durante todos estos años.',
+        'Gracias por acompañarme durante todo este tiempo.',
         'Gracias por haber sido parte de esta etapa de mi vida.',
         'Y gracias por hacer que valiera tanto la pena.',
-        'No quiero que esto sea un adiós.',
-        'Prefiero pensar que simplemente dejamos de compartir un lugar, pero no todo lo que construimos.',
+        'No quiero que esto sea un adiós. Prefiero pensar que dejamos de compartir un lugar, pero no todo lo que construimos.',
         'Nos seguiremos encontrando.',
       ],
       closingPhrase: 'Lo que vivimos queda. Lo que construimos permanece.',
