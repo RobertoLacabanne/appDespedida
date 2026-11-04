@@ -129,7 +129,7 @@ export const experience: ExperienceConfig = {
     closing: 'Con mucho cariño,',
   },
 
-  recipients: ['Inés', 'Agustín', 'Carla', 'Brenda', 'Consuelo', 'Martina'],
+  recipients: ['Bren', 'Ine', 'Carli', 'Consu', 'Marti', 'Agus'],
 
   yearsShared: null,
 

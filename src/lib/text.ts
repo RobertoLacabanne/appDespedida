@@ -1,4 +1,4 @@
-/** "Inés, Agustín y Carla" */
+/** "Bren, Ine y Carli" */
 export function listJoin(items: string[]): string {
   if (items.length <= 1) return items.join('')
   return `${items.slice(0, -1).join(', ')} y ${items[items.length - 1]}`
